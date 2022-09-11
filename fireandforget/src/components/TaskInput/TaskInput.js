@@ -12,7 +12,7 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 
-import { TextField, Button, IconButton, InputAdornment } from "@mui/material";
+import { TextField, Button, InputAdornment } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 
 const dbQuery = query(collection(db, "tasks"), orderBy("timestamp", "desc"));
@@ -32,14 +32,15 @@ export default function TaskInput() {
     });
   }, [title]);
 
-  const addTask = (change) => {
-    change.preventDefault();
-    addDoc(collection(db, "tasks"), {
-      title: title,
-      timestamp: serverTimestamp(),
-      checked: false,
-    });
-    setTitle("");
+  const addTask = () => {
+    if (title !== "") {
+      addDoc(collection(db, "tasks"), {
+        title: title,
+        timestamp: serverTimestamp(),
+        checked: false,
+      });
+      setTitle("");
+    }
   };
 
   return (

@@ -5,7 +5,6 @@ import TaskInput from "../components/TaskInput/TaskInput";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import "tachyons";
-import { Css } from "@mui/icons-material";
 
 const darkTheme = createTheme({
   palette: {
@@ -17,7 +16,6 @@ function TasksPage() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <Header />
       <TaskInput />
     </ThemeProvider>
   );

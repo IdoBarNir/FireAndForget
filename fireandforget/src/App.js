@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import Header from "./components/Header/Header";
 
 import Login from "./Pages/Login";
 import TasksPage from "./Pages/TasksPage";
@@ -20,6 +21,7 @@ class App extends Component {
             </li>
           </ul>
         </nav>
+        <Header />
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/tasks" element={<TasksPage />} />
