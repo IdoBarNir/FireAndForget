@@ -48,11 +48,7 @@ const TaskList = () => {
 
   return (
     <List className="task-list">
-<<<<<<< HEAD
-      \{" "}
-=======
-      {/* explicit value here, change! */}
->>>>>>> 1ef4e5ad3c974d621e11cbd6eb6edf34d4ccdd1a
+      {" "}
       {tasks.map((task) => {
         const labelId = `checkbox-list-label-${task.id}`;
 
