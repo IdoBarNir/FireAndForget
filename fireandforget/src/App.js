@@ -1,34 +1,30 @@
 import React, { Component } from "react";
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
 
-import Header from "./components/Header/Header";
-import TaskInput from "./components/TaskInput/TaskInput";
-import TaskList from "./components/TaskList/TaskList";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-import "tachyons";
-
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-  },
-});
+import Login from "./Pages/Login";
+import TasksPage from "./Pages/TasksPage";
+import { Link } from "react-router-dom";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <ThemeProvider theme={darkTheme}>
-          <CssBaseline />
-          <Header />
-          <TaskInput />
-          <TaskList />
-          {/*<Checkmark />
-        <EditButtons />
-        <DeleteButtons />
-        */}
-        </ThemeProvider>
-      </div>
+      <>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Login</Link>
+            </li>
+            <li>
+              <Link to="/tasks">Tasks</Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/tasks" element={<TasksPage />} />
+        </Routes>
+      </>
     );
   }
 }
